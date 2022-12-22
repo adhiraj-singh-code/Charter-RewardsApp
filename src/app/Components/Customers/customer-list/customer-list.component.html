@@ -1,0 +1,29 @@
+<div class="container my-7" >
+    <h1 class="mb-7">Customers</h1>
+
+    <table class="table" *ngIf="customers && customers.length > 0">
+        <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Name</th>
+            <th>Transaction($)</th>
+            <th>Reward points</th>
+            <th>Total for Quarter</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor ="let customer of customers">
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.transaction}}</td>
+            <td>{{calculateValue(customer.transaction)}}</td>
+            <td>{{calculateTotal(customer.name)}}</td>
+        </tr>
+    </tbody>
+
+
+    </table>
+    <p *ngIf="!customers || customers.length<=0">Sorry, no customers found</p>
+
+</div>
